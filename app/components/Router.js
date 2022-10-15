@@ -101,7 +101,7 @@ export async function Router(){//Una forma de hacer esta petición de forma asyn
             pokeImg.style.background =  `radial-gradient(${colorTwo} 33%, ${colorOne} 33%)`;
             pokeImg.style.backgroundSize = ' 5px 5px';
         }
-        
+        console.log("borrar");
         const renderPokemonTypes = types => {
             pokeTypes.innerHTML = '';
             types.forEach(type => {
