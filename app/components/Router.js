@@ -34,7 +34,7 @@ export async function Router(){
                 url: `https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`,
                 cbSuccess: (pokemon)=>{ 
                     lista.push(AgregarPokemones(pokemon));
-                    Buscar(pokemon,lista);
+                    Buscar(lista);
                     console.log(lista);
                 },
                 unSuccess: (err) => { }

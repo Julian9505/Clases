@@ -1,4 +1,6 @@
+// import { Formulario } from "./Formulario.js";
 const d = document;
+
 
 export function Main(){
     const $main = d.createElement("section");
@@ -12,11 +14,12 @@ export function Main(){
             <main id="main" class="grid-fluid"></main>
         `;
     }else if(location.hash === "#/buscar"){
-        $main.innerHTML = `
-            
-                <form class="form" action="">
+        $main.innerHTML = `                
+            <form class="form" action="">
                 <input type="text" name="pokemon" autocomplete="off" autofocus placeholder="Pokemon">
-                </form>
+            </form>`;
+        $main.innerHTML = `
+            <template template-pokemons>
                 <main id="main" class="grid-fluid">
                 <div data-poke-card class="poke-card none">
                     <div data-poke-name>Pokedex</div>
@@ -31,6 +34,7 @@ export function Main(){
                 </div>
                 <div class="error none"></div>
                 </main>
+            </template>
         `;
     }
 

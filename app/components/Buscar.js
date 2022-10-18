@@ -1,8 +1,5 @@
 
-export function Buscar(pokemon, Lista){// con async me entragaba un prototype 
-
-    // const pokemonn = AgregarPokemones(pokemon);
-    // console.log(pokemonn);
+export function Buscar(Lista){// con async me entragaba un prototype 
 
     const d = document;
     const $template = d.querySelector("[template-pokemon]");
@@ -14,6 +11,7 @@ export function Buscar(pokemon, Lista){// con async me entragaba un prototype
     const pokeTypes = $template.querySelector('[data-poke-types]');
     const pokeStats = $template.querySelector('[data-poke-stats]');
     const $fragment = d.createDocumentFragment();
+    const $main = d.querySelector(".main");
 
     const typeColors = {
         electric: '#FFEA70',
@@ -112,7 +110,7 @@ export function Buscar(pokemon, Lista){// con async me entragaba un prototype
         $fragment.appendChild($clone);
     });
 
-    
+    $main.appendChild($fragment);
 
     // console.log(Lista);
 
