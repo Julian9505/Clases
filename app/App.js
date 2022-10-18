@@ -8,11 +8,13 @@ export function App(){
 
     const d = document,
     $root = d.getElementById("root");
+    let Lista = [];
     
     $root.innerHTML = null;
     $root.appendChild(Header());
     $root.appendChild(Main());
     $root.appendChild(SideBar());
     $root.appendChild(Footer());
-    Router();
+
+    Router(Lista);
 }

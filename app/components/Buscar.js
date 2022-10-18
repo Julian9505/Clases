@@ -2,7 +2,7 @@
 export function Buscar(Lista){// con async me entragaba un prototype 
 
     const d = document;
-    const $template = d.querySelector("[template-pokemon]");
+    const $template = d.querySelector("[template-pokemons]").content;
     const pokeCard = $template.querySelector('[data-poke-card]');
     const pokeName = $template.querySelector('[data-poke-name]');
     const pokeImg = $template.querySelector('[data-poke-img]');
@@ -11,7 +11,9 @@ export function Buscar(Lista){// con async me entragaba un prototype
     const pokeTypes = $template.querySelector('[data-poke-types]');
     const pokeStats = $template.querySelector('[data-poke-stats]');
     const $fragment = d.createDocumentFragment();
-    const $main = d.querySelector(".main");
+    const $main = d.querySelector(".prueba");
+
+    // $main.innerHTML=(Lista);
 
     const typeColors = {
         electric: '#FFEA70',
@@ -33,18 +35,17 @@ export function Buscar(Lista){// con async me entragaba un prototype
         default: '#2A1A1F',
     };
 
-
     Lista.forEach( e => {
 
         const setCardColor = (color1, color2) => {
             const colorOne = typeColors[color1];
-            const colorTwo = color2;
+            const colorTwo = typeColors[color2];
             pokeImg.style.background =  `radial-gradient(${colorTwo} 33%, ${colorOne} 33%)`;
             pokeImg.style.backgroundSize = ' 5px 5px';
         }
     
         const renderPokemonTypes = (color1, color2) => {
-            pokeTypes.innerHTML = '';
+            // pokeTypes.innerHTML = '';
 
 
             const typeTextElement1 = d.createElement("div");
@@ -71,7 +72,7 @@ export function Buscar(Lista){// con async me entragaba un prototype
         }
         
         const renderPokemonStats = estadisticas => {
-            pokeStats.innerHTML = '';
+            // pokeStats.innerHTML = '';
             estadisticas.forEach(stat => {
                 const statElement = d.createElement("div");
                 const statElementName = d.createElement("div");
@@ -84,18 +85,7 @@ export function Buscar(Lista){// con async me entragaba un prototype
                 pokeStats.classList.add("none");
             });
         }
-    
-        const renderNotFound = () => {
-            pokeName.textContent = 'No encontrado';
-            pokeImg.setAttribute('src', 'poke-shadow.png');
-            pokeImg.style.background =  '#fff';
-            pokeTypes.innerHTML = '';
-            pokeStats.innerHTML = '';
-            pokeId.textContent = '';
-            // pokeCard.classList.add("none");
-        }
-    
-        // const sprite =  Lista.img.sprites.front_default;
+        
         const { color1, color2, img, nombre, estadisticas, id } = e;
         pokeId.textContent = `Nº ${id}:`;
         
@@ -112,7 +102,4 @@ export function Buscar(Lista){// con async me entragaba un prototype
 
     $main.appendChild($fragment);
 
-    // console.log(Lista);
-
-    // return Lista;
 }

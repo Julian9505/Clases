@@ -11,9 +11,8 @@ let LinkPokemons = "https://pokeapi.co/api/v2/pokemon/"; /*Hay que agregar esto 
 const d = document;
 
 
-export async function Router(){
+export async function Router(Lista){
     const d = document;
-    const lista=[];
     let {hash} = location;
 
     if(!hash || hash === "#/"){
@@ -33,9 +32,9 @@ export async function Router(){
             await ajax({
                 url: `https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`,
                 cbSuccess: (pokemon)=>{ 
-                    lista.push(AgregarPokemones(pokemon));
-                    Buscar(lista);
-                    console.log(lista);
+                    Lista.push(AgregarPokemones(pokemon));
+                    console.log(Lista);
+                    Buscar(Lista);
                 },
                 unSuccess: (err) => { }
             });
@@ -44,7 +43,6 @@ export async function Router(){
     }
 }
 
-// d.addEventListener("DOMContentLoaded", e => Router(LinkPokemons));
 d.addEventListener("click", e=>{
     if(e.target.matches(".links a")){
         LinkPokemons=e.target.getAttribute("href");
