@@ -13,6 +13,7 @@ export function Main(){
         `;
     }else if(location.hash === "#/buscar"){
         $main.innerHTML = `
+            
                 <form class="form" action="">
                 <input type="text" name="pokemon" autocomplete="off" autofocus placeholder="Pokemon">
                 </form>
