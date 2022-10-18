@@ -38,21 +38,26 @@ export function Buscar(pokemon, Lista){// con async me entragaba un prototype
 
     Lista.forEach( e => {
 
-        const setCardColor = types => {
-            const colorOne = typeColors[types[0].type.name];
-            const colorTwo = types[1] ? typeColors[types[1].type.name] : typeColors.default;
+        const setCardColor = (color1, color2) => {
+            const colorOne = typeColors[color1];
+            const colorTwo = color2;
             pokeImg.style.background =  `radial-gradient(${colorTwo} 33%, ${colorOne} 33%)`;
             pokeImg.style.backgroundSize = ' 5px 5px';
         }
     
-        const renderPokemonTypes = types => {
+        const renderPokemonTypes = (color1, color2) => {
             pokeTypes.innerHTML = '';
-            types.forEach(type => {
-                const typeTextElement = d.createElement("div");
-                typeTextElement.style.color = typeColors[type.type.name];
-                typeTextElement.textContent = type.type.name;
-                pokeTypes.appendChild(typeTextElement);
-            });
+
+
+            const typeTextElement1 = d.createElement("div");
+            const typeTextElement2 = d.createElement("div");
+            typeTextElement1.style.color = typeColors[color1];
+            typeTextElement1.textContent = color1;
+            typeTextElement2.style.color = typeColors[color2];
+            typeTextElement2.textContent = color2;
+            pokeTypes.appendChild(typeTextElement1);
+            pokeTypes.appendChild(typeTextElement2);
+
     
             const botonStats = d.createElement("button"); 
             botonStats.classList.add("boton-stats");
@@ -93,18 +98,23 @@ export function Buscar(pokemon, Lista){// con async me entragaba un prototype
         }
     
         // const sprite =  Lista.img.sprites.front_default;
-        const { color1, color2, img, nombre, estadisticas, id } = Lista;
+        const { color1, color2, img, nombre, estadisticas, id } = e;
         pokeId.textContent = `Nº ${id}:`;
         
         pokeName.textContent = nombre;
-        pokeImg.setAttribute('src', sprite);
-        setCardColor(types);
+        pokeImg.setAttribute('src', img);
+        setCardColor(color1, color2);
         renderPokemonTypes(color1, color2);
         renderPokemonStats(estadisticas);
-        pokeCard.classList.remove("none");       
+        pokeCard.classList.remove("none");   
+        
+        let $clone = d.importNode($template,true);// el true respeta toda la estructura del tamplate
+        $fragment.appendChild($clone);
     });
+
+    
 
     // console.log(Lista);
 
-    return Lista;
+    // return Lista;
 }
