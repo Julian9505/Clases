@@ -1,11 +1,12 @@
 import { ajax } from "../helpers/ajax.js";
 
-const d = document,
-$main = d.getElementById("main"),
-$links = d.querySelector(".links");
 
+export function Pokemones(pokemons){
 
-export async function Pokemones(pokemons){
+    const d = document,
+    $main = d.getElementById("main"),
+    $links = d.querySelector(".links");
+
     $main.innerHTML = `<img class="loader" src="../assets/loader.svg" alt="Cargando...">`;
     let $template ="",
     $prevLink,

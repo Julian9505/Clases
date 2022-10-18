@@ -220,7 +220,7 @@ html {
 
   .menu a:hover {
     background-image: none;
-    padding-right: 1rem;
+    /* padding-right: 1rem; */
   }
 } 
 
@@ -365,6 +365,7 @@ input {
   align-content: space-between;
   /* padding: 5px; */
   font-size: 10px;
+  /* width: 300px; */
 }
 
 .poke-types div {
@@ -402,21 +403,12 @@ div [data-poke-id]{
 div [data-poke-stats]{
 
   position: relative;
-  top: 50px;
-  height: 220px;
-  width: 205px;
-  right: 35px;
-
+  margin: auto 15px;
 }
 
 div [data-poke-types]{
 
   display: flex;
-  position: absolute;
-  top: -13px;
-  left: 75px;
-  align-items: center;
-
 }
 
 .boton-stats{

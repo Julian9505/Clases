@@ -1,9 +1,7 @@
-const d = document;
-const $btnMenu = d.querySelector(".menu-btn"),
-$menu = d.querySelector(".menu");
-
-
-export async function Menu(){
+export async function MenuBoton(header){
+    const $btnMenu = header.querySelector(".menu-btn"),
+    $menu = header.querySelector(".menu"),
+    d = document;
 
     $btnMenu.addEventListener("click", (e) => {
         $btnMenu.firstElementChild.classList.toggle("none");
@@ -18,4 +16,5 @@ export async function Menu(){
         $btnMenu.lastElementChild.classList.add("none");
         $menu.classList.remove("is-active");
     });
+
 }
