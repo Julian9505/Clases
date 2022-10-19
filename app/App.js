@@ -4,11 +4,10 @@ import { Footer } from "./components/Footer.js";
 import { Main } from "./components/Main.js";
 import { Router } from "./components/Router.js";
 
-export function App(){
+export function App(){//metodolgía SPA 
 
     const d = document,
     $root = d.getElementById("root");
-    let Lista = [];
     
     $root.innerHTML = null;
     $root.appendChild(Header());
@@ -16,5 +15,5 @@ export function App(){
     $root.appendChild(SideBar());
     $root.appendChild(Footer());
 
-    Router(Lista);
+    Router();
 }

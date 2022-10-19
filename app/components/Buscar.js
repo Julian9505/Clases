@@ -11,11 +11,12 @@ export function Buscar(Lista){// con async me entragaba un prototype
     const pokeTypes = $template.querySelector('[data-poke-types]');
     const pokeStats = $template.querySelector('[data-poke-stats]');
     const $fragment = d.createDocumentFragment();
-    const $main = d.querySelector(".prueba");
+    const $main = d.querySelector(".render-busqueda");
 
-    // $main.innerHTML=(Lista);
+    $main.innerHTML = "";
+    $template.innerHTML = "";
 
-    const typeColors = {
+    const typeColors = {//lista de colores segun el tipo de pokemon, aveces tienen dos tipos
         electric: '#FFEA70',
         normal: '#B09398',
         fire: '#FF675C',
@@ -35,18 +36,17 @@ export function Buscar(Lista){// con async me entragaba un prototype
         default: '#2A1A1F',
     };
 
-    Lista.forEach( e => {
+    Lista.forEach( e => {// Por cada uno de los objetos recibidos realiza el renderizado, mediante el metodo de template y fregment
 
-        const setCardColor = (color1, color2) => {
+        const setCardColor = (color1, color2) => {//colores de la tarjeta según los tipos de cada pokemon mediante la lista de colores
             const colorOne = typeColors[color1];
             const colorTwo = typeColors[color2];
             pokeImg.style.background =  `radial-gradient(${colorTwo} 33%, ${colorOne} 33%)`;
             pokeImg.style.backgroundSize = ' 5px 5px';
         }
     
-        const renderPokemonTypes = (color1, color2) => {
-            // pokeTypes.innerHTML = '';
-
+        const renderPokemonTypes = (color1, color2) => {//crea los tipos de cada pokemon con su valor y color especificos, también se crea el boton (pokebola) el cual swichea la clase none de las estadisticas
+            pokeTypes.innerHTML = '';
 
             const typeTextElement1 = d.createElement("div");
             const typeTextElement2 = d.createElement("div");
@@ -56,23 +56,24 @@ export function Buscar(Lista){// con async me entragaba un prototype
             typeTextElement2.textContent = color2;
             pokeTypes.appendChild(typeTextElement1);
             pokeTypes.appendChild(typeTextElement2);
-
     
             const botonStats = d.createElement("button"); 
             botonStats.classList.add("boton-stats");
-            // botonStats.textContent = "Stats";
             pokeTypes.appendChild(botonStats); 
-    
-            
-            d.addEventListener("click", (e) => { 
+                
+            d.addEventListener("click", async (e) => { 
                 if(e.target === botonStats){
-                    pokeStats.classList.toggle("none");
+                    if(pokeStats.classList.contains("none")){
+                        pokeStats.classList.remove("none");
+                    }else{
+                        pokeStats.classList.add("none");
+                    }
                 }
             });       
         }
         
-        const renderPokemonStats = estadisticas => {
-            // pokeStats.innerHTML = '';
+        const renderPokemonStats = estadisticas => {// estas son las estadisticas las cuales estas ocultas con la clase none y no funciona el botonStats 
+            pokeStats.innerHTML = '';
             estadisticas.forEach(stat => {
                 const statElement = d.createElement("div");
                 const statElementName = d.createElement("div");
@@ -82,7 +83,7 @@ export function Buscar(Lista){// con async me entragaba un prototype
                 statElement.appendChild(statElementName);
                 statElement.appendChild(statElementAmount);
                 pokeStats.appendChild(statElement);
-                pokeStats.classList.add("none");
+                pokeStats.classList.add("none");//clase none
             });
         }
         
@@ -96,7 +97,7 @@ export function Buscar(Lista){// con async me entragaba un prototype
         renderPokemonStats(estadisticas);
         pokeCard.classList.remove("none");   
         
-        let $clone = d.importNode($template,true);// el true respeta toda la estructura del tamplate
+        let $clone = d.importNode($template,true);
         $fragment.appendChild($clone);
     });
 

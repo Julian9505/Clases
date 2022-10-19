@@ -262,7 +262,7 @@ html {
   
 }
 
-.prueba {
+.render-busqueda {
   position: fixed;
   left: 20%;
   right: 0;
@@ -356,6 +356,7 @@ html {
   background-color: #FFF;
   border: 1px solid black;
   font-size: 12px;
+  /* z-index: -2; */
 }
 
 .poke-card::before {
@@ -441,7 +442,7 @@ div [data-poke-types]{
   border-color:transparent;
 }
 
-.boton-stats:hover{
+.boton-stats:active{
   height: 50px;
   width: 50px;
   background-image: url(../assets/pokebola.png);
