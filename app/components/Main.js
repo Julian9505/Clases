@@ -9,14 +9,14 @@ export function Main(){
         location.hash.replace("#/");
         $main.innerHTML = `
             <nav class="links"></nav>
-            <main id="main" class="grid-fluid"></main>
+            <main id="main" class="grid-fluid-todos"></main>
         `;
     }else if(location.hash === "#/buscar"){
         $main.innerHTML = `
         <form class="form" action="">
             <input class="input" type="text" name="pokemon" autocomplete="off" autofocus placeholder="Pokemon">
         </form>
-        <main id="main" class="render-busqueda grid-fluid"></main>
+        <main id="main" class="grid-fluid-busqueda"></main>
         <template template-pokemons>
             <div data-poke-card class="poke-card">
                 <div data-poke-name></div>

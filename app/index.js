@@ -1,6 +1,8 @@
 import { App } from "./App.js";
 
-const d= document;
+const d= document,
+Lista = [];
 
-d.addEventListener("DOMContentLoaded", App);
-window.addEventListener("hashchange", () => { App() });
+d.addEventListener("DOMContentLoaded", App(Lista));
+window.addEventListener("hashchange", () => { App(Lista) });
+console.log(Lista);

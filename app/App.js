@@ -4,7 +4,7 @@ import { Footer } from "./components/Footer.js";
 import { Main } from "./components/Main.js";
 import { Router } from "./components/Router.js";
 
-export function App(){//metodolgía SPA 
+export function App(Lista){//metodolgía SPA 
 
     const d = document,
     $root = d.getElementById("root");
@@ -14,6 +14,5 @@ export function App(){//metodolgía SPA
     $root.appendChild(Main());
     $root.appendChild(SideBar());
     $root.appendChild(Footer());
-
-    Router();
+    Router(Lista);
 }

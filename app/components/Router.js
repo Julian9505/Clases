@@ -6,8 +6,6 @@ import { AgregarPokemones } from "./AgregarPokemones.js";//toma las varialbles d
 
 // Cosas sin resolver o que funcionan mal: 
 
-//- la renderización de cada poquemon en el main creado en Main.js, buscado en hash #/buscar renderiza una y otra vez cada lista de pokemones, me refiero a Lista ya que cada vez que se hace una petición y aumenta Lista no borra el pokemon anterior si no que repite en viejo y aumenta el nuevo y pasa lo mismo si hay mas de 2, ej ya renderizo pikachu y cuando busco otro como charizard renderiza otra vez pikachu y me entrega a charizard
-
 //- el botonStats no funciona porque creo yo, la funcion Buscar.js que es la que renderiza el boton se ejecuta solo una vez y el addeventlistener que esta en Buscar.js no toma el valor porque no se esta ejecutando la función, debería mostrar las estadisticas al dar click en botonStats y quitarlas cuando de click otra vez.
 
 //- falta la funcionalidad de la filtración de pokemones por tipos ej: fuego, metal, agua, aire, etc.
@@ -18,10 +16,9 @@ let LinkPokemons = "https://pokeapi.co/api/v2/pokemon/";
 const d = document;
 
 
-export async function Router(){
+export async function Router(Lista){
     const d = document;
     let {hash} = location;
-    let Lista = [];
 
     if(!hash || hash === "#/"){// hash que se intercambia en selección del header
         hash = "#/";
@@ -30,7 +27,10 @@ export async function Router(){
             cbSuccess: (pokemons) =>{Pokemones(pokemons)},
             unSuccess: (err) => { }
         });
+                    console.log(Lista);
     }else if(!hash || hash === "#/buscar"){
+
+        Buscar(Lista);
 
         d.addEventListener("submit", async (event) => { 
 
@@ -42,12 +42,12 @@ export async function Router(){
                 cbSuccess: (pokemon)=>{ 
                     Lista.push(AgregarPokemones(pokemon));
                     console.log(Lista);
-                    Buscar(Lista);
                 },
                 unSuccess: (err) => { }
             });
-
+            Buscar(Lista);
         });
+        
     }
 }
 

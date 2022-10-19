@@ -11,10 +11,12 @@ export function Buscar(Lista){// con async me entragaba un prototype
     const pokeTypes = $template.querySelector('[data-poke-types]');
     const pokeStats = $template.querySelector('[data-poke-stats]');
     const $fragment = d.createDocumentFragment();
-    const $main = d.querySelector(".render-busqueda");
+    const $main = d.querySelector(".grid-fluid-busqueda");
+    const $form = d.querySelector(".input");
 
     $main.innerHTML = "";
     $template.innerHTML = "";
+    $form.value = "";
 
     const typeColors = {//lista de colores segun el tipo de pokemon, aveces tienen dos tipos
         electric: '#FFEA70',

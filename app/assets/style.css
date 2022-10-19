@@ -250,26 +250,31 @@ html {
   left: 20%;
   right: 0;
   top: 0;
-  bottom: 6rem;
+  bottom: calc(var(--header-height) + 2rem);
   overflow-y: auto;
 }
 
-.grid-fluid {
+.grid-fluid-todos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   text-align: center;
-  /* position: relative; */
-  
 }
 
-.render-busqueda {
+.grid-fluid-busqueda {
   position: fixed;
   left: 20%;
   right: 0;
   top: var(--header-height);
-  bottom: 6rem;
-  overflow: auto;
+  bottom: calc(var(--header-height) + 2rem);
+  overflow: hidden auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  text-align: center;
 }
+
+/* .render-busqueda {
+
+} */
 
 .loader {
   display: block;
@@ -279,14 +284,13 @@ html {
 @media screen and (min-width: 1024px) {
 
   .main {
-    bottom: 2rem;
+    bottom: calc(var(--header-height) - 2rem);
     top: var(--header-height);
   }
 
-  .prueba {
-    right: 0;
-    top: 8rem;
-    bottom: 2rem;
+  .grid-fluid-busqueda {
+    top: calc(var(--header-height) + 4rem);
+    bottom: calc(var(--header-height) - 2rem);
   }
 }
 
@@ -319,7 +323,7 @@ html {
 
 }
 
-/*   **********   POKEDEX   **********   */
+/*   **********   BUSCAR Y TARJETAS   **********   */
 
 @media screen and (min-width: 1024px){
 
@@ -352,7 +356,7 @@ html {
   color: #000;
   text-align: center;
   padding: 10px;
-  margin: 0 auto;
+  margin: 7px auto;
   background-color: #FFF;
   border: 1px solid black;
   font-size: 12px;
@@ -384,9 +388,8 @@ html {
   display: flex;
   justify-content: space-between;
   align-content: space-between;
-  /* padding: 5px; */
+  padding: 5px;
   font-size: 10px;
-  /* width: 300px; */
 }
 
 .poke-types div {
