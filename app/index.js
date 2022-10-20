@@ -4,5 +4,4 @@ const d= document,
 Lista = [];
 
 d.addEventListener("DOMContentLoaded", App(Lista));
-window.addEventListener("hashchange", () => { App(Lista) });
-console.log(Lista);
+window.addEventListener("hashchange", () => { App(Lista)});

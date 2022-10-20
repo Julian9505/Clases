@@ -23,6 +23,7 @@ export function Header(){
         <nav class="menu">
         <a href="#/">Pokemons</a>
         <a href="#/buscar">Buscar</a>
+        <a href="#/filtrar">filtrar</a>
         </nav>
     </section>
     `;

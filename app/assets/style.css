@@ -455,13 +455,38 @@ div [data-poke-types]{
   border-color:transparent;
 }
 
-.error{
-  position: absolute;
-  background-color: rgba(0, 0, 0, .7);
-  width: 100%;
-  height: 100%;
+.filtros{
+  height: calc(var(--header-height) - 1rem);
+  width: 50%;
+  margin: 0 auto;
+  border: thin transparent linear;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  align-items: center;
 }
 
-/* .links{
-  position: sticky;
-} */
+.filtros::-webkit-scrollbar{
+  height: 5px;
+}
+
+.filtros::-webkit-scrollbar-thumb{
+  background-image: linear-gradient(90deg, var(--second-color-red), var(--first-color-red),var(--second-color-yellow),var(--first-color-yellow),var(--second-color-blue),var(--first-color-blue));
+  border-radius: 10px;
+  /* width: 2px; */
+}
+
+.filtro-boton{
+  height: calc(var(--header-height) - 2rem);
+  width: auto;
+  border: thin black dotted;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  font-family: pokemon-solid;
+  display: flex;
+  align-items: flex-end;
+}
+
+.filtro-boton:active{
+  font-size: 18px;
+}

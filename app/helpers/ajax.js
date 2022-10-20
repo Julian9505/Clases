@@ -1,10 +1,10 @@
 export async function ajax(props){
-    let { url, cbSuccess, unSuccess } = props;
+    let { url, cbSuccess } = props;
 
     await fetch(url)
     .then(res => res.ok ? res.json() : Promise.reject(res))
     .then(json => cbSuccess(json))
-    .catch(err => unSuccess(err));
+    .catch(err => {});
 }
         // let message = err.statusText || "Ocurrio un error";
         

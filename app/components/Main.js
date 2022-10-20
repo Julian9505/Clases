@@ -31,6 +31,14 @@ export function Main(){
             </div>
         </template>
         `;
+    }else if(location.hash === "#/filtrar") {
+        location.hash.replace("#/");
+        $main.innerHTML = `
+            <div class="filtros">
+                <button class="filtro-boton" style="background-color: black; color: white">All</button>
+            </div>
+            <main id="main" class="grid-fluid-todos"></main>
+        `;
     }
 
 
